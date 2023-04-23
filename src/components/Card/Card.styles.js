@@ -34,9 +34,9 @@ export const AvatarWrapper = styled.div`
   width: 80px;
   height: 80px;
   border: 8px solid #ebd8ff;
-  box-shadow: 0px -4.39163px -4.39163px rgba(0, 0, 0, 0.06),
-    inset 0px 2.19582px -4.39163px #ae7be3,
-    inset 0px -4.39163px -3.29372px #fbf8ff;
+  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
+    inset 0px -2.19582px 4.39163px #ae7be3,
+    inset 0px 4.39163px 3.29372px #fbf8ff;
   border-radius: 86px;
   margin: 0 auto;
 `;
