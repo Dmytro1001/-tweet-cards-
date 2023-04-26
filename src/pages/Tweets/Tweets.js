@@ -1,25 +1,32 @@
-import CardsList from 'components/CardsList/CardsList';
-import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
 import { userFetch, toggleUser } from 'services/apiTweets';
+import { Loader } from 'components/Loader/Loader';
+import CardsList from 'components/CardsList/CardsList';
+import { TweetsContainer, BtnBack, LoadMoreBtn } from './Tweets.styles';
 
 const Tweets = () => {
   const [tweets, setTweets] = useState([]);
   const [page, setPage] = useState(1);
-
   const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const location = useLocation();
+  const backLinkLocation = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     (async () => {
       try {
         const userData = await userFetch(page);
 
-        if (userData.length === 0) {
-          return alert('No results');
+        if (userData.length < 3) {
+          setHasMore(false);
+          setLoading(false);
         }
         if (page === 1) {
           setTweets(userData);
         } else {
           setTweets(prevstate => [...prevstate, ...userData]);
+          setLoading(false);
         }
       } catch (error) {}
     })();
@@ -37,29 +44,23 @@ const Tweets = () => {
   };
 
   const handleLoadMore = () => {
+    setLoading(true);
     setPage(prevPage => prevPage + 1);
   };
 
-  // const handleLoadMore = async () => {
-  //   const additionalData = await userFetch(page + 1);
-  //   if (additionalData.length > 0) {
-  //     setTweets(prevTweets => [...prevTweets, ...additionalData]);
-  //     setPage(prevPage => prevPage + 1);
-  //     setLoadedCount(prevCount => prevCount + 3);
-  //   } else {
-  //     setHasMore(false);
-  //   }
-  // };
-
   return (
-    <>
+    <TweetsContainer>
+      <BtnBack to={backLinkLocation.current}>Go Back</BtnBack>
       {tweets && (
         <>
           <CardsList tweets={tweets} handleToggleFollow={handleToggleFollow} />
-          {hasMore && <button onClick={handleLoadMore}>Load More</button>}
+          {hasMore && !loading && (
+            <LoadMoreBtn onClick={handleLoadMore}>Load More</LoadMoreBtn>
+          )}
+          {loading && <Loader />}
         </>
       )}
-    </>
+    </TweetsContainer>
   );
 };
 

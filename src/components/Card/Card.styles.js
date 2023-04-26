@@ -13,7 +13,7 @@ export const WrapperContainer = styled.div`
     #5736a3 54.28%,
     #4b2a99 78.99%
   );
-  box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
+  box-shadow: -2.5777px 6.87386px 20.6216px rgba(94, 86, 111, 0.23);
 `;
 
 export const LogoCard = styled.img`
@@ -113,24 +113,3 @@ export const Btn = styled.button`
     transform: scale(1.05);
   }
 `;
-
-// const [users, setUsers] = useState([]);
-// const [page, setPage] = useState(1);
-
-// useEffect(() => {
-//   (async () => {
-//     try {
-//       const data = await fetchUsers(page);
-
-//       if (data.length === 0) {
-//         return alert('No results');
-//       }
-
-//       if (page === 1) {
-//         setUsers(data);
-//       } else {
-//         setUsers(prevstate => [...prevstate, ...data]);
-//       }
-//     } catch (error) {}
-//   })();
-// }, [page]);

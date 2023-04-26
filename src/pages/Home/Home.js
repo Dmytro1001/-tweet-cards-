@@ -1,14 +1,10 @@
-// import Card from 'components/Card/Card';
-
-// import tweetsFetch from 'services/apiTweets';
+import { Container, Text } from './Home.styles';
 
 const Home = () => {
   return (
-    <div style={{ margin: '20px auto' }}>
-      <p>Will be here Home page</p>
-      {/* <button onClick={tweetsFetch}>fetch</button> */}
-      {/* <Card /> */}
-    </div>
+    <Container>
+      <Text>Hello Friend</Text>
+    </Container>
   );
 };
 

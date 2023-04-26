@@ -12,7 +12,9 @@ const Header = () => {
         <nav>
           <List>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" end>
+                Home
+              </Link>
             </li>
             <li>
               <Link to="/tweets">Tweets</Link>

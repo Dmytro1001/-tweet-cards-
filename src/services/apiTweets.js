@@ -2,8 +2,6 @@ import ky from 'ky';
 
 const BASE_URL = 'https://6445437db80f57f581b5a6bd.mockapi.io/api/v1/tweets/';
 
-// let currentPage = 1;
-
 const userFetch = async page => {
   const res = await ky
     .get(BASE_URL, {
@@ -13,7 +11,6 @@ const userFetch = async page => {
       },
     })
     .json();
-  console.log(res);
   return res;
 };
 
