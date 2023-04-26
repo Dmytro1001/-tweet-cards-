@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/911.b5b0e40e.chunk.js","mappings":"sIAIA,UAJe,WACb,OAAO,mDACR,C","sources":["pages/Tweets/Tweets.js"],"sourcesContent":["const Tweets = () => {\n  return <p>Will be here Tweets page</p>;\n};\n\nexport default Tweets;\n"],"names":[],"sourceRoot":""}
